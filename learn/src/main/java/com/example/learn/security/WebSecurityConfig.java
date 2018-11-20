@@ -28,16 +28,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure (HttpSecurity http)  throws Exception{
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/user/login").authenticated()
+                .antMatchers("login.html", "/users/add").permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/user/login")
-                .defaultSuccessUrl("/")
+                .loginPage("/login.html")
+                .defaultSuccessUrl("/user/")
                 .failureHandler(customAuthenticationFailureHandler)
                 .and()
                 .logout().logoutSuccessUrl("/user/login").permitAll();
     }
-
 
     private class SecurityInterceptor extends HandlerInterceptorAdapter {
         @Override

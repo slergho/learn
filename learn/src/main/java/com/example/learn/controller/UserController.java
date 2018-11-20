@@ -4,13 +4,12 @@ package com.example.learn.controller;
 import com.example.learn.entity.SysUser;
 import com.example.learn.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping(value = "/users")
 public class UserController {
 
